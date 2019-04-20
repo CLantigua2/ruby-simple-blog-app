@@ -6,4 +6,8 @@ Rails.application.routes.draw do
 
   # route to the about page
   get 'about' => 'pages#about'
+
+  # change post to resource
+  # this gives you access to a lot of premade HTTP methods
+  resources :posts
 end
