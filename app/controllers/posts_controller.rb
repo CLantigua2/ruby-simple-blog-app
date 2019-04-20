@@ -6,17 +6,18 @@ class PostsController < ApplicationController
         @posts = Post.all
     end
 
+    # this will find the post id to display
     def show
-        # this will find the post id to display
         @post = Post.find(params[:id])
     end
 
     # this will take care of the form
     # "/posts/new"
     def new
-
+        @post = Post.new
     end
 
+    # this will create a new post
     def create
         # this returns an object with the title and the body that was submitted through the form post
         # render plain: params[:post].inspect
@@ -29,6 +30,32 @@ class PostsController < ApplicationController
         else
             render 'new'
         end
+    end
+
+    # this will handle the edit action
+    def edit
+        @post = Post.find(params[:id])
+    end
+
+    # this will handle submitting a new edit
+    def update
+        @post = Post.find(params[:id])
+
+        if(@post.update(post_params))
+            redirect_to @post
+        else
+            render 'edit'
+        end
+    end
+
+    # this will handle deleting a post
+    def destroy
+        # find the post by id
+        @post = Post.find(params[:id])
+        # delete the post
+        @post.destroy
+        # redirect to the path that has all the remaining posts
+        redirect_to posts_path
     end
 
     # this method will define what a post will look like

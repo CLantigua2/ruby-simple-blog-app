@@ -1,6 +1,11 @@
 <h1>Blog Posts</h1>
 <%# only use equal sign if your outputting a variable %>
+
+<!-- this code is saying "for each post, render a title and body -->
 <% @posts.each do |post| %>
-<h3><%= post.title %></h3>
-<p><%= post.body %></p>
+    <div class="well">
+        <h3><%= post.title %></h3>
+        <p><%= post.body %></p>
+        <%= link_to "Read More", post_path(post), :class => "btn btn-default"%>
+    </div>
 <% end %>
