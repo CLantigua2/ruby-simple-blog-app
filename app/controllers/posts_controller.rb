@@ -2,7 +2,8 @@
 class PostsController < ApplicationController
     # this would be the root "posts/" route
     def index
-
+        # this will display all of the posts on index page
+        @posts = Post.all
     end
 
     def show
