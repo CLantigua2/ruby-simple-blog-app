@@ -1,5 +1,6 @@
 # handles everything in the /posts/ route
 class PostsController < ApplicationController
+    http_basic_authenticate_with name: "Carlos", password: "1234", except: [:index, :show]
     # this would be the root "posts/" route
     def index
         # this will display all of the posts on index page

@@ -9,5 +9,7 @@ Rails.application.routes.draw do
 
   # change post to resource
   # this gives you access to a lot of premade HTTP methods
-  resources :posts
+  resources :posts do
+    resources :comments
+  end
 end
