@@ -3,9 +3,13 @@
 
 <!-- this code is saying "for each post, render a title and body -->
 <% @posts.each do |post| %>
-    <div class="well">
+    <div class="card mb-4">
+        <div class="card-title p-3">
         <h3><%= post.title %></h3>
+        </div>
+        <div class="card-body p-3">
         <p><%= post.body %></p>
+        </div>
         <%= link_to "Read More", post_path(post), :class => "btn btn-default"%>
     </div>
 <% end %>
