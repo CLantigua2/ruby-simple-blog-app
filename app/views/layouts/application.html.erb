@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Simpleblog</title>
+    <%# meta tags %>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+<%# styled sheet and JS %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+
+  <%# this yield is where everything will be output from %>
+    <%= yield %>
+  </body>
+</html>
