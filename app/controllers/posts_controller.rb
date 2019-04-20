@@ -23,9 +23,12 @@ class PostsController < ApplicationController
         # this step creates a new post with the post params
         @post = Post.new(post_params)
         # this step saves the post
-        @post.save
-        # this step will load the show view that will display the post
-        redirect_to @post
+        if(@post.save)
+            # this step will load the show view that will display the post
+            redirect_to @post
+        else
+            render 'new'
+        end
     end
 
     # this method will define what a post will look like
